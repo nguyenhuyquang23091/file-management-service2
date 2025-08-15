@@ -1,37 +1,30 @@
-package com.fyp.file_service.dto;
-
+package com.fyp.file_service.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
+@Setter
+@Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Document(collection = "file-management")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class FileInfo {
-    @JsonProperty("public_id")
+public class FileManagement {
+    @Id
+    String id;
+    String ownerId;
     String publicId;
-    @JsonProperty("secure_url")
     String secureUrl;
-    @JsonProperty("original_filename")
     String originalFilename;
-    @JsonProperty("resource_type")
     String resourceType;
-    
-    @JsonProperty("type")
     String type;
-
-    @JsonProperty("created_at")
     String createdAt;
-
-    @JsonProperty("width")
     Integer width;
-    
-    @JsonProperty("height")
     Integer height;
-
 
 
 }

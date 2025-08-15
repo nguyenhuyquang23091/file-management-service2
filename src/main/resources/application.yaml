@@ -8,8 +8,21 @@ spring:
     name: file-service
   data:
     mongodb:
-      uri: mongodb://root:root@localhost:27017/file-service?authSource=admin
+      uri: "mongodb://localhost:27017/file-service"
 cloudinary :
   cloudinary.cloud-name: "drunmvrkm"
   cloudinary.api-key: "116351667583516"
   cloudinary.api-secret: "fPlbFT-8F9YHCchd73rPo0-1udI"
+logging:
+  level:
+    com.fyp.file_service: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.apache.coyote: DEBUG
+    org.apache.catalina: DEBUG
+    org.apache.tomcat: DEBUG
+    org.apache.coyote.http11.Http11InputBuffer: DEBUG
+    org.apache.tomcat.util.http.parser: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

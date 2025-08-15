@@ -2,6 +2,7 @@ package com.fyp.file_service.controller;
 
 
 import com.fyp.file_service.dto.response.ApiResponse;
+import com.fyp.file_service.dto.response.FileResponse;
 import com.fyp.file_service.service.FileService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -22,11 +23,13 @@ import java.io.IOException;
 public class FileController {
     FileService fileService;
     @PostMapping("/media/upload")
-    public ApiResponse<Object> uploadImage(@RequestParam("file") MultipartFile file,
-                                         @RequestParam("folder") String folderName) throws  IOException {
-        return ApiResponse.builder().
-        result(fileService.uploadFile(file, folderName)).
-                build();
+    public ApiResponse<FileResponse> uploadImage
+            (@RequestParam("file") MultipartFile file
+
+           ) throws  IOException {
+        return ApiResponse.<FileResponse>builder()
+                .result(fileService.uploadFile(file ))
+                .build();
     }
 
 
